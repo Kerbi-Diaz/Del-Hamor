@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Residencia Del Hamor</title>
+    <!-- Tailwind CSS -->
+    <link href="src/output.css" rel="stylesheet">
+    <!-- AOS CSS (Local) -->
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Alpine.js (Local) -->
+    <script src="assets/js/alpine.min.js" defer></script>
+    <script src="assets/js/cdn.min.js" defer></script>
+    <script src="https://kit.fontawesome.com/YOUR_KIT_CODE.js" crossorigin="anonymous"></script>
+
+  </head>
+  
+<body >
+
+  <div x-data="{ open: true }" class="flex flex-col max-w-screen-xl px-10 mx-auto md:items-center md:justify-between md:flex-row md:px-8 lg:px-12 py-6">
+    <div class="flex flex-row items-center justify-between p-10 w-full">
+        <!-- Left Side (Book Now Button) -->
+        <div class="flex items-center space-x-0">
+            <a href="booking.html" class="inline-block">
+                <button class="px-4 py-2 border border-yellow-600 text-yellow-600 rounded hover:bg-yellow-600 hover:text-white transition">
+                    Book Now
+                </button>
+            </a>
+        </div>
+
+        <!-- Center (Logo) -->
+        <div class="absolute left-1/2 transform -translate-x-1/2">
+            <img src="assets/img/logo.jpg" alt="Del Hamor" class="h-16 md:h-20">
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
+
+    <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-start md:flex-row">
+        <a href="index.html" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200">Home</a>
+        <a href="accommodation.html" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200">Accommodations</a>
+        <a href="amenities.html" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200">Amenities</a>
+        <a href="contact.html" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200">Contact</a>
+    </nav>
+</div>
+
+  
+  
+
+<!-- HERO SECTION WITH VIDEO BACKGROUND -->
+<section class="relative w-full h-screen pt-16 overflow-hidden">
+  <!-- Video Background -->
+  <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline>
+    <source src="assets/video/HeroVid.mp4" type="video/mp4" onerror="this.parentElement.remove();">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/50"></div>
+
+  <!-- Hero Text -->
+  <div class="relative z-10 flex flex-col items-center justify-center text-center h-full px-4">
+    <h1 data-aos="flip-down" class="text-white text-6xl md:text-7xl lg:text-8xl font-serif font-bold mb-4 tracking-wide text-shadow">
+      Residencia Del Hamor
+    </h1>
+    <p data-aos="fade-up" class="text-white text-2xl md:text-3xl lg:text-4xl italic font-serif text-shadow">
+      Calmness, Serenity, and Relaxation
+    </p>
+  </div>
+</section>
+
+<!-- AOS JS (Keep it before closing body tag) -->
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    AOS.init({
+      duration: 1000, // Adjust animation speed
+      once: true, // Ensures animation happens only once
+    });
+  });
+</script>
+
+
+
+<!-- BOOKING FORM OVERLAY -->
+<div class="absolute bottom-[-60px] left-1/2 transform -translate-x-1/2 w-[90%] max-w-5xl bg-white shadow-lg p-6 rounded-lg z-30">
+  <div class="flex flex-wrap md:flex-nowrap items-center justify-between space-y-4 md:space-y-0 md:space-x-6">
+    <!-- Arrival Date -->
+    <div class="flex-1">
+      <label class="block text-gray-700 font-semibold mb-1">Arrival Date</label>
+      <div class="flex items-center border-b-2 border-yellow-500 pb-1">
+        <span class="material-icons text-yellow-500 mr-2"></span>
+        <input id="arrival-date" type="date" class="w-full bg-transparent focus:outline-none">
+      </div>
+    </div>
+    <!-- Departure Date -->
+    <div class="flex-1">
+      <label class="block text-gray-700 font-semibold mb-1">Departure Date</label>
+      <div class="flex items-center border-b-2 border-yellow-500 pb-1">
+        <span class="material-icons text-yellow-500 mr-2"></span>
+        <input id="departure-date" type="date" class="w-full bg-transparent focus:outline-none">
+      </div>
+    </div>
+    <!-- Promo Code -->
+    <div class="flex-1">
+      <label class="block text-gray-700 font-semibold mb-1">Promo Code</label>
+      <div class="flex items-center border-b-2 border-yellow-500 pb-1">
+        <span class="material-icons text-yellow-500 mr-2"></span>
+        <input type="text" placeholder="Code Here" class="w-full bg-transparent focus:outline-none">
+      </div>
+    </div>
+    <!-- Check Availability Button -->
+    <div>
+      <a href="accommodation.html">
+        <button class="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition">
+          CHECK AVAILABILITY
+        </button>
+      </a>
+      
+    </div>
+  </div>
+</div>
+
+<script>
+  // Function to format date as yyyy-mm-dd
+  const formatDate = date => date.toISOString().split('T')[0];
+
+  // Set arrival date to today
+  const today = new Date();
+  document.getElementById('arrival-date').value = formatDate(today);
+
+  // Set departure date to tomorrow
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+  document.getElementById('departure-date').value = formatDate(tomorrow);
+</script>
+
+
+  <section class="container mx-auto px-6 lg:px-8 mt-32 mb-16">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <img src="assets/img/homepage/_.webp" alt="loc" class="w-full h-auto rounded shadow">
+      </div>
+      <div class="flex flex-col justify-center">
+        <h2 class="text-3xl md:text-5xl font-bold mb-4">
+          Calmness, Serenity, and Relaxation
+        </h2>
+        <p class="text-gray-700 leading-relaxed">
+          Escape to Recidencia Del Hamor, a tranquil haven nestled in nature’s embrace. Overlooking the breathtaking Mount Bulusan, our retreat offers the perfect blend of luxury and tranquility, where you can unwind, recharge, and reconnect with nature. 🌿✨        </p>
+      </div>
+    </div>
+  </section>
+  <!-- END CONTENT SECTION -->
+
+  <!-- JavaScript for Scroll Effect (Navbar) -->
+  <script>
+    window.addEventListener("scroll", function () {
+      const navbar = document.getElementById("navbar");
+      if (window.scrollY > 50) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
+      }
+    });
+  </script>
+
+  <!-- AOS Animation (Optional) -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      offset: 100,
+      duration: 1000,
+    });
+  </script>
+
+
+
+<!-- Accommodations: Guest Rooms Section -->
+<section class="bg-gray-50 py-16">
+    <div class="container mx-auto px-6">
+      <!-- Section Header -->
+      <div class="flex items-center justify-between mb-8">
+        <!-- Title & Subtitle -->
+        <div>
+          <span class="block text-sm uppercase tracking-widest text-gray-600">
+            Accommodations
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800">
+            Rooms
+          </h2>
+        </div>
+        
+      </div>
+  
+      <section class="py-20 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Deluxe Villa -->
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+                  <div class="relative">
+                    <!-- Room Image -->
+                    <div class="h-60 bg-cover bg-center" style="background-image: url('assets/img/ac/Deluxe Villa/Deluxe Villa (14).webp');"></div>
+                    <!-- Icon Bar (floating) -->
+                    <ul class="icons absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2 bg-white shadow p-3 rounded-lg flex space-x-3">
+                      <!-- Changed 'fal' to 'fas' for free icons -->
+                      <li><i class="fas fa-bed"></i></li>
+                      <li><i class="fas fa-wifi"></i></li>
+                      <li><i class="fas fa-coffee"></i></li>
+                      <li><i class="fas fa-concierge-bell"></i></li>
+                      <li><i class="fas fa-compress-arrows-alt"></i></li>
+                      <li><i class="fas fa-swimmer"></i></li>
+                    </ul>
+                  </div>
+                  <!-- Room Details -->
+                  <div class="p-5 text-center">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Deluxe Villa</h4>
+                    <p class="text-gray-600 text-sm">Guest Rating: 8.0 (267 reviews)</p>
+                    <p class="text-gray-600 text-sm">Non-Smoking | Pool View | Balcony/Terrace</p>
+                    <p class="text-gray-600 text-sm">
+                      Unwind in a spacious villa featuring a private pool, free Wi-Fi, and complimentary refreshments. Enjoy a separate living room, bathrobes, and modern amenities—all set in serene, natural surroundings.
+                    </p>
+                    <p class="text-lg font-semibold text-gray-900 mt-2">₱14,000 </p>
+      
+                    <a href="booking.html" class="inline-block mt-3 text-blue-500 font-medium hover:underline">Book Now</a>
+                    
+                  </div>
+                </div>
+                
+                <!-- Panoramic Duplex Villa with Pool -->
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+                  <div class="relative">
+                    <!-- Room Image -->
+                    <div class="h-60 bg-cover bg-center" style="background-image: url('assets/img/ac/Panoramic Duplex Villa with Pool/_ (12).webp');"></div>
+                    <!-- Icon Bar (floating) -->
+                    <ul class="icons absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2 bg-white shadow p-3 rounded-lg flex space-x-3">
+                      <!-- Changed 'fal' to 'fas' for free icons -->
+                      <li><i class="fas fa-bed"></i></li>
+                      <li><i class="fas fa-wifi"></i></li>
+                      <li><i class="fas fa-coffee"></i></li>
+                      <li><i class="fas fa-concierge-bell"></i></li>
+                      <li><i class="fas fa-compress-arrows-alt"></i></li>
+                      <li><i class="fas fa-swimmer"></i></li>
+                    </ul>
+                  </div>
+                  <!-- Room Details -->
+                  <div class="p-5 text-center">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Panoramic Duplex Villa with Pool</h4>
+                    <p class="text-gray-600 text-sm">Guest Rating: 8.0 (267 reviews)</p>
+                    <p class="text-gray-600 text-sm">Non-Smoking | Pool View | Balcony/Terrace</p>
+                    <p class="text-gray-600 text-sm">
+                      Enjoy a spacious duplex villa with a private pool, free Wi-Fi, and modern comforts—all framed by breathtaking panoramic views.
+                    </p>
+                    <p class="text-lg font-semibold text-gray-900 mt-2">₱17,920 </p>
+      
+                    <a href="booking.html" class="inline-block mt-3 text-blue-500 font-medium hover:underline">Book Now</a>
+                  </div>
+                </div>
+                
+                <!-- Suite Room -->
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+                  <div class="relative">
+                    <!-- Room Image -->
+                    <div class="h-60 bg-cover bg-center" style="background-image: url('assets/img/ac/Suite Room/_ (41).webp');"></div>
+                    <!-- Icon Bar (floating) -->
+                    <ul class="icons absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2 bg-white shadow p-3 rounded-lg flex space-x-3">
+                      <!-- Changed 'fal' to 'fas' for free icons -->
+                      <li><i class="fas fa-bed"></i></li>
+                      <li><i class="fas fa-wifi"></i></li>
+                      <li><i class="fas fa-coffee"></i></li>
+                      <li><i class="fas fa-concierge-bell"></i></li>
+                      <li><i class="fas fa-compress-arrows-alt"></i></li>
+                      <li><i class=\"fas fa-swimmer\"></i></li>
+                    </ul>
+                  </div>
+                  <!-- Room Details -->
+                  <div class="p-5 text-center">
+                    <h4 class="text-xl font-semibold text-gray-800 mb-2">Suite Room</h4>
+                    <p class="text-gray-600 text-sm">Guest Rating: 8.0 (267 reviews)</p>
+                    <p class="text-gray-600 text-sm">Non-Smoking | Garden View | Balcony/Terrace</p>
+                    <p class="text-gray-600 text-sm">
+                      Enjoy a comfortable stay with a private bathroom, free Wi-Fi, satellite TV, and elegant wooden flooring.
+                    </p>
+                    <p class="text-lg font-semibold text-gray-900 mt-2">₱10,080 </p>
+      
+                    <a href="booking.html" class="inline-block mt-3 text-blue-500 font-medium hover:underline">Book Now</a>
+                  </div>
+                </div>
+      
+                <!-- Duplex Villa -->
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+                  <div class="relative">
+                      <!-- Room Image -->
+                      <div class="h-60 bg-cover bg-center" style="background-image: url('assets/img/ac/Duplex%20Villa/_%20(29).webp');"></div>
+                      
+                      <!-- Icon Bar (floating) -->
+                      <ul class="icons absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2 bg-white shadow p-3 rounded-lg flex space-x-3">
+                          <li><i class="fas fa-seedling"></i></li> <!-- Garden View -->
+                          <li><i class="fas fa-archway"></i></li> <!-- Balcony/Terrace -->
+                          <li><i class="fas fa-smoking-ban"></i></li> <!-- Non-Smoking -->
+                          <li><i class="fas fa-shower"></i></li> <!-- Shower -->
+                          <li><i class="fas fa-wheelchair"></i></li> <!-- Accessibility -->
+                      </ul>
+                  </div>
+                  
+                  <!-- Room Details -->
+                  <div class="p-5 text-center">
+                      <h4 class="text-xl font-semibold text-gray-800 mb-2">Duplex Villa</h4>
+                      <p class="text-gray-600 text-sm">Guest Rating: <strong>8.0</strong> (267 reviews)</p>
+                      
+                      <p class="text-gray-600 text-sm">Non-Smoking | Garden View | Balcony/Terrace</p>
+              
+                      <p class="text-gray-600 text-sm mt-2">Unwind in a cozy villa featuring a private bathroom, free Wi-Fi, satellite TV, and elegant wooden flooring.</p>
+                      <p class="text-lg font-semibold text-gray-900 mt-2">₱12,600 </p>
+      
+                      <a href="booking.html" class="inline-block mt-3 text-blue-500 font-medium hover:underline">Book Now</a>
+                    </div>
+              </div>
+              
+              
+                <!-- Standard Villa -->
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+                  <div class="relative">
+                      <!-- Room Image -->
+                      <div class="h-60 bg-cover bg-center" style="background-image: url('assets/img/ac/Standard%20Villa/st.webp');"></div>
+                      
+                      <!-- Icon Bar (floating) -->
+                      <ul class="icons absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2 bg-white shadow p-3 rounded-lg flex space-x-3">
+                          <li><i class="fas fa-seedling"></i></li> <!-- Garden View -->
+                          <li><i class="fas fa-archway"></i></li> <!-- Balcony/Terrace -->
+                          <li><i class="fas fa-smoking-ban"></i></li> <!-- Non-Smoking -->
+                          <li><i class="fas fa-shower"></i></li> <!-- Shower -->
+                          <li><i class="fas fa-wheelchair"></i></li> <!-- Accessibility -->
+                      </ul>
+                  </div>
+                  
+                  <!-- Room Details -->
+                  <div class="p-5 text-center">
+                      <h4 class="text-xl font-semibold text-gray-800 mb-2">Standard Villa</h4>
+                      <p class="text-gray-600 text-sm">Guest Rating: <strong>8.0</strong> (267 reviews)</p>
+                      <p class="text-gray-600 text-sm">Non-Smoking | Garden View | Balcony/Terrace</p>
+                      <p class="text-gray-600 text-sm mt-2">Relax in a stylish villa featuring a private bathroom, free Wi-Fi, satellite TV, and elegant wooden flooring. Enjoy complimentary tea, coffee, and modern amenities.</p>
+                      <p class="text-lg font-semibold text-gray-900 mt-2">₱9,600 </p>
+                      <a href="booking.html" class="inline-block mt-3 text-blue-500 font-medium hover:underline">Book Now</a>
+                    </div>
+              </div>
+              
+               
+            </div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+
+  
+<!-- Import Required Icons and Scripts -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+<!-- TESTIMONIALS SECTION -->
+<section class="py-16">
+    <div class="container mx-auto px-6" x-data="{ currentSlide: 0, totalSlides: 2 }">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row items-center justify-between mb-8">
+        <!-- Title -->
+        <div class="mb-4 md:mb-0">
+          <span class="block text-sm uppercase tracking-widest text-gray-600">Testimonials</span>
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Client Feedback</h2>
+        </div>
+        
+        <!-- Arrows -->
+        <div class="flex space-x-2">
+          <!-- Previous Button -->
+          <button
+            class="bg-white border border-gray-300 p-2 rounded-full hover:bg-gray-100 transition disabled:opacity-50"
+            aria-label="Previous"
+            :disabled="currentSlide === 0"
+            @click="if(currentSlide > 0) currentSlide--"
+          >
+            <i class="fas fa-chevron-left text-gray-600"></i>
+          </button>
+          <!-- Next Button -->
+          <button
+            class="bg-yellow-500 p-2 rounded-full text-white hover:bg-yellow-600 transition disabled:opacity-50"
+            aria-label="Next"
+            :disabled="currentSlide === totalSlides - 1"
+            @click="if(currentSlide < totalSlides - 1) currentSlide++"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- SLIDE 1 -->
+      <div x-show="currentSlide === 0" class="grid gap-8 md:grid-cols-3">
+        
+        <!-- Testimonial Card 1 -->
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Recidencia Del Hamor Manila</h3>
+          <!-- Star Rating -->
+          <div class="flex justify-center mb-3">
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+          </div>
+          <p class="text-gray-700 mb-4">
+            “The hotel is in a great location! The staff are amazing. The rooms are clean and modern. The breakfast is...”
+          </p>
+          <p class="text-sm text-gray-500">
+            Stayed: February 2025
+          </p>
+        </div>
+
+        <!-- Testimonial Card 2 -->
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Highly satisfied with our stay.</h3>
+          <div class="flex justify-center mb-3">
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+          </div>
+          <p class="text-gray-700 mb-4">
+            “We stayed for days in this hotel and we were all pleased with the location, the staff’s cleanliness, the amenities...”
+          </p>
+          <p class="text-sm text-gray-500">
+            Stayed: Jan. 2025
+          </p>
+        </div>
+
+        <!-- Testimonial Card 3 -->
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Relaxing Staycation</h3>
+          <div class="flex justify-center mb-3">
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+          </div>
+          <p class="text-gray-700 mb-4">
+            “The staff were very courteous, the room was clean, the food was really good! We love the view in our...”
+          </p>
+          <p class="text-sm text-gray-500">
+            Stayed: February 2025
+          </p>
+        </div>
+      </div>
+      <!-- END SLIDE 1 -->
+
+      <!-- SLIDE 2 -->
+      <div x-show="currentSlide === 1" class="grid gap-8 md:grid-cols-3">
+        
+        <!-- Testimonial Card 4 -->
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">Relaxing Staycation</h3>
+          <div class="flex justify-center mb-3">
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+          </div>
+          <p class="text-gray-700 mb-4">
+            “The staff were very courteous, the room was clean, the food was really good! We love the view in our...”
+          </p>
+          <p class="text-sm text-gray-500">
+            Stayed: February 2025
+          </p>
+        </div>
+
+        <!-- Testimonial Card 5 -->
+        <div class="bg-white rounded-lg shadow p-6">
+          <h3 class="text-xl font-semibold mb-2">10 / 10</h3>
+          <div class="flex justify-center mb-3">
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+            <i class="fas fa-star text-yellow-500"></i>
+          </div>
+          <p class="text-gray-700 mb-4">
+            “We had an amazing experience at this hotel! The ambiance, the food, and the service were top-notch...”
+          </p>
+          <p class="text-sm text-gray-500">
+            Stayed: March 2025
+          </p>
+        </div>
+      </div>
+      <!-- END SLIDE 2 -->
+    </div>
+</section>
+
+
+
+<!-- FOOTER SECTION (BLACK BACKGROUND) -->
+<footer class="bg-black text-white pt-10">
+  <div class="container mx-auto px-6">
+    <!-- Upper Footer: Logo & Info -->
+    <div class="flex flex-col lg:flex-row lg:space-x-8">
+      <!-- Left Column: Logo & Description -->
+      <div class="lg:w-1/3 mb-8 lg:mb-0">
+        <img src="assets/img/logo.jpg" alt="Recidencia Del Hamor" class="mb-4" style="max-height: 160px;" />
+        <p class="text-gray-300 text-sm leading-relaxed">
+          Nestled in the serene landscapes of Sorsogon, Recidencia Del Hamor offers a tranquil retreat with modern comforts. Guests can enjoy well-appointed accommodations, an outdoor pool, and a full-service spa, making it an ideal destination for relaxation and rejuvenation.
+        </p>
+      </div>
+
+      <!-- Middle Column: Navigation Links -->
+      <div class="lg:w-1/3 mb-8 lg:mb-0">
+        <h3 class="text-lg font-bold mb-4">Quick Links</h3>
+        <ul class="space-y-2 text-gray-300">
+          <li><a href="index.html" class="hover:text-white">Home</a></li>
+          <li><a href="accommodation.html" class="hover:text-white">Accommodations</a></li>
+          <li><a href="amenities.html" class="hover:text-white">Amenities</a></li>
+          <li><a href="contact.html" class="hover:text-white">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Right Column: Contact Us -->
+      <div class="lg:w-1/3 mb-8 lg:mb-0">
+        <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+        <p class="text-gray-300 text-sm">
+          Barangay Inlagadian, Casiguran, Sorsogon, Philippines<br />
+          Phone: +63 905 245 1920<br />
+          Email: <a href="mailto:reservations@recidenciadelhamor.com.ph" class="underline hover:text-white">reservations@recidenciadelhamor.com.ph</a>
+        </p>
+
+        <!-- Social Media Links -->
+        <div class="mt-4 flex space-x-4">
+          <a href="https://www.facebook.com/recidenciadelhamor" target="_blank" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-facebook-f text-2xl"></i>
+          </a>
+          <a href="https://www.instagram.com/recidenciadelhamor" target="_blank" class="text-gray-400 hover:text-white transition">
+            <i class="fab fa-instagram text-2xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div class="border-t border-gray-700 mt-8 pt-4 flex flex-col lg:flex-row items-center justify-between text-sm text-gray-500">
+      <p class="mb-4 lg:mb-0">&copy; 2025 Recidencia Del Hamor. All rights reserved.</p>
+      <a href="index.html" class="hover:text-white">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Carousel Initialization -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 4,         // Number of images visible at once
+      spaceBetween: 10,         // Gap between slides
+      loop: true,               // Infinite loop
+      autoplay: {
+        delay: 2500,            // 2.5 seconds per slide
+        disableOnInteraction: false,
+      },
+      // Responsive breakpoints
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+      },
+    });
+  </script>
+  <script src="assets/js/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  
+</body>
+</html>

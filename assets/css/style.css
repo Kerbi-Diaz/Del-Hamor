@@ -1,0 +1,81 @@
+/* Navbar Scroll Effect */
+.scrolled {
+  background: white !important;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+html {
+  scroll-behavior: smooth;
+  background: #ffffff !important;
+}
+#sidebar {
+z-index: 50; /* Increase this value if needed */
+position: fixed; /* Ensure it's positioned above other elements */
+top: 0;
+left: 0;
+height: 100vh;
+width: 20vw; /* Adjust width as needed */
+background-color: white; /* Ensure background is solid */
+box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+video {
+z-index: -1; /* Push video to the back */
+position: absolute;
+}
+#sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full screen width */
+  height: 100vh; /* Full screen height */
+  background: rgba(255, 255, 255, 0.95); /* Slight transparency */
+  backdrop-filter: blur(10px); /* Smooth background effect */
+  z-index: 50; /* Ensure it's on top */
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  overflow-y: auto; /* Allows scrolling */
+  padding: 20px;
+}
+#sidebar {
+  transition: transform 0.3s ease-in-out;
+}
+
+#sidebar.open {
+  transform: translateX(0); /* Show sidebar */
+}
+
+#menu-btn {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 51; /* Higher than the sidebar */
+}
+
+#close-btn {
+  font-size: 24px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Align items properly */
+  align-items: center; /* Center vertically */
+  padding: 5px 20px; /* Reduce padding */
+  height: 50px; /* Reduce height */
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px; /* Reduce spacing between links */
+  font-size: 14px; /* Make text slightly smaller */
+}
+
+.logo {
+  height: 35px; /* Adjust logo size */
+}
+
+.book-now {
+  padding: 5px 10px; /* Reduce button padding */
+  font-size: 14px;
+}

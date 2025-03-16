@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Residencia Del Hamor</title>
+ 
+    <!-- Tailwind CSS -->
+    <link href="src/output.css" rel="stylesheet">
+    <!-- AOS CSS (Local) -->
+    <link rel="stylesheet" href="assets/css/aos.css">
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Alpine.js (Local) -->
+    <script src="assets/js/alpine.min.js" defer></script>
+    <script src="assets/js/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  </head>
+  
+<body class="overflow-x-hidden antialiased w-full">
+
+  <div x-data="{ open: true }" class="flex flex-col max-w-screen-xl px-10 mx-auto md:items-center md:justify-between md:flex-row md:px-8 lg:px-12 py-6">
+    <div class="flex flex-row items-center justify-between p-10 w-full">
+        <!-- Left Side (Book Now Button) -->
+        <div class="flex items-center space-x-0">
+            <a href="booking.html" class="inline-block">
+                <button class="px-4 py-2 border border-yellow-600 text-yellow-600 rounded hover:bg-yellow-600 hover:text-white transition">
+                    Book Now
+                </button>
+            </a>
+        </div>
+
+        <!-- Center (Logo) -->
+        <div class="absolute left-1/2 transform -translate-x-1/2">
+            <img src="assets/img/logo.jpg" alt="Del Hamor" class="h-16 md:h-20">
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
+            <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+            </svg>
+        </button>
+    </div>
+
+    <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-start md:flex-row">
+        <a href="index.html" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200">Home</a>
+        <a href="accommodation.html" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200">Accommodations</a>
+        <a href="amenities.html" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200">Amenities</a>
+        <a href="contact.html" class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200">Contact</a>
+    </nav>
+</div>
+
+<section 
+  class="relative w-full h-[493px] bg-center bg-cover flex items-center"
+  style="background-image: url('assets/img/homepage/_.webp');"
+>
+  <div class="container mx-auto px-5">
+    <!-- Text Container -->
+    <div class="text-white">
+      <span class="uppercase tracking-wider block text-[20px] font-semibold mb-2">
+        ACCOMMODATIONS
+      </span>
+      <h2 class="uppercase tracking-wider block text-[50px] font-semibold mb-2">
+        Deluxe Villa
+      </h2>
+     
+    </div>
+    
+  </div>
+</section>
+
+
+
+
+<!-- AOS JS (Keep it before closing body tag) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    AOS.init({
+      duration: 1000, // Adjust animation speed
+      once: true, // Ensures animation happens only once
+    });
+  });
+</script>
+
+<section class="py-20 px-4">
+  <div class="container mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          
+          <!-- Deluxe Villa -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+            <div class="relative">
+              <!-- Room Image -->
+              <div class="h-60 bg-cover bg-center" style="background-image: url('assets/img/ac/Deluxe Villa/Deluxe Villa (14).webp');"></div>
+              <!-- Icon Bar (floating) -->
+              <ul class="icons absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2 bg-white shadow p-3 rounded-lg flex space-x-3">
+                <!-- Changed 'fal' to 'fas' for free icons -->
+                <li><i class="fas fa-bed"></i></li>
+                <li><i class="fas fa-wifi"></i></li>
+                <li><i class="fas fa-coffee"></i></li>
+                <li><i class="fas fa-concierge-bell"></i></li>
+                <li><i class="fas fa-compress-arrows-alt"></i></li>
+                <li><i class="fas fa-swimmer"></i></li>
+              </ul>
+            </div>
+            <!-- Room Details -->
+            <div class="p-5 text-center">
+              <h4 class="text-xl font-semibold text-gray-800 mb-2">Deluxe Villa</h4>
+              <p class="text-gray-600 text-sm">Guest Rating: 8.0 (267 reviews)</p>
+              <p class="text-gray-600 text-sm">Non-Smoking | Pool View | Balcony/Terrace</p>
+              <p class="text-gray-600 text-sm">
+                Unwind in a spacious villa featuring a private pool, free Wi-Fi, and complimentary refreshments. Enjoy a separate living room, bathrobes, and modern amenities—all set in serene, natural surroundings.
+              </p>
+              <p class="text-lg font-semibold text-gray-900 mt-2">₱14,000 </p>
+
+              <a href="booking.html" class="inline-block mt-3 text-blue-500 font-medium hover:underline">Book Now</a>
+              
+            </div>
+          </div>
+          
+          <!-- Panoramic Duplex Villa with Pool -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+            <div class="relative">
+              <!-- Room Image -->
+              <div class="h-60 bg-cover bg-center" style="background-image: url('assets/img/ac/Panoramic Duplex Villa with Pool/_ (12).webp');"></div>
+              <!-- Icon Bar (floating) -->
+              <ul class="icons absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2 bg-white shadow p-3 rounded-lg flex space-x-3">
+                <!-- Changed 'fal' to 'fas' for free icons -->
+                <li><i class="fas fa-bed"></i></li>
+                <li><i class="fas fa-wifi"></i></li>
+                <li><i class="fas fa-coffee"></i></li>
+                <li><i class="fas fa-concierge-bell"></i></li>
+                <li><i class="fas fa-compress-arrows-alt"></i></li>
+                <li><i class="fas fa-swimmer"></i></li>
+              </ul>
+            </div>
+            <!-- Room Details -->
+            <div class="p-5 text-center">
+              <h4 class="text-xl font-semibold text-gray-800 mb-2">Panoramic Duplex Villa with Pool</h4>
+              <p class="text-gray-600 text-sm">Guest Rating: 8.0 (267 reviews)</p>
+              <p class="text-gray-600 text-sm">Non-Smoking | Pool View | Balcony/Terrace</p>
+              <p class="text-gray-600 text-sm">
+                Enjoy a spacious duplex villa with a private pool, free Wi-Fi, and modern comforts—all framed by breathtaking panoramic views.
+              </p>
+              <p class="text-lg font-semibold text-gray-900 mt-2">₱17,920 </p>
+
+              <a href="booking.html" class="inline-block mt-3 text-blue-500 font-medium hover:underline">Book Now</a>
+            </div>
+          </div>
+          
+          <!-- Suite Room -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+            <div class="relative">
+              <!-- Room Image -->
+              <div class="h-60 bg-cover bg-center" style="background-image: url('assets/img/ac/Suite Room/_ (41).webp');"></div>
+              <!-- Icon Bar (floating) -->
+              <ul class="icons absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2 bg-white shadow p-3 rounded-lg flex space-x-3">
+                <!-- Changed 'fal' to 'fas' for free icons -->
+                <li><i class="fas fa-bed"></i></li>
+                <li><i class="fas fa-wifi"></i></li>
+                <li><i class="fas fa-coffee"></i></li>
+                <li><i class="fas fa-concierge-bell"></i></li>
+                <li><i class="fas fa-compress-arrows-alt"></i></li>
+                <li><i class=\"fas fa-swimmer\"></i></li>
+              </ul>
+            </div>
+            <!-- Room Details -->
+            <div class="p-5 text-center">
+              <h4 class="text-xl font-semibold text-gray-800 mb-2">Suite Room</h4>
+              <p class="text-gray-600 text-sm">Guest Rating: 8.0 (267 reviews)</p>
+              <p class="text-gray-600 text-sm">Non-Smoking | Garden View | Balcony/Terrace</p>
+              <p class="text-gray-600 text-sm">
+                Enjoy a comfortable stay with a private bathroom, free Wi-Fi, satellite TV, and elegant wooden flooring.
+              </p>
+              <p class="text-lg font-semibold text-gray-900 mt-2">₱10,080 </p>
+
+              <a href="booking.html" class="inline-block mt-3 text-blue-500 font-medium hover:underline">Book Now</a>
+              <a href="booking.html" class="inline-block mt-3 text-blue-500 font-medium hover:underline">Book Now</a>
+            </div>
+          </div>
+
+          <!-- Duplex Villa -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+            <div class="relative">
+                <!-- Room Image -->
+                <div class="h-60 bg-cover bg-center" style="background-image: url('assets/img/ac/Duplex%20Villa/_%20(29).webp');"></div>
+                
+                <!-- Icon Bar (floating) -->
+                <ul class="icons absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2 bg-white shadow p-3 rounded-lg flex space-x-3">
+                    <li><i class="fas fa-seedling"></i></li> <!-- Garden View -->
+                    <li><i class="fas fa-archway"></i></li> <!-- Balcony/Terrace -->
+                    <li><i class="fas fa-smoking-ban"></i></li> <!-- Non-Smoking -->
+                    <li><i class="fas fa-shower"></i></li> <!-- Shower -->
+                    <li><i class="fas fa-wheelchair"></i></li> <!-- Accessibility -->
+                </ul>
+            </div>
+            
+            <!-- Room Details -->
+            <div class="p-5 text-center">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Duplex Villa</h4>
+                <p class="text-gray-600 text-sm">Guest Rating: <strong>8.0</strong> (267 reviews)</p>
+                
+                <p class="text-gray-600 text-sm">Non-Smoking | Garden View | Balcony/Terrace</p>
+        
+                <p class="text-gray-600 text-sm mt-2">Unwind in a cozy villa featuring a private bathroom, free Wi-Fi, satellite TV, and elegant wooden flooring.</p>
+                <p class="text-lg font-semibold text-gray-900 mt-2">₱12,600 </p>
+
+                <a href="booking.html" class="inline-block mt-3 text-blue-500 font-medium hover:underline">Book Now</a>
+              </div>
+        </div>
+        
+        
+          <!-- Standard Villa -->
+          <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105">
+            <div class="relative">
+                <!-- Room Image -->
+                <div class="h-60 bg-cover bg-center" style="background-image: url('assets/img/ac/Standard%20Villa/st.webp');"></div>
+                
+                <!-- Icon Bar (floating) -->
+                <ul class="icons absolute left-1/2 transform -translate-x-1/2 bottom-0 translate-y-1/2 bg-white shadow p-3 rounded-lg flex space-x-3">
+                    <li><i class="fas fa-seedling"></i></li> <!-- Garden View -->
+                    <li><i class="fas fa-archway"></i></li> <!-- Balcony/Terrace -->
+                    <li><i class="fas fa-smoking-ban"></i></li> <!-- Non-Smoking -->
+                    <li><i class="fas fa-shower"></i></li> <!-- Shower -->
+                    <li><i class="fas fa-wheelchair"></i></li> <!-- Accessibility -->
+                </ul>
+            </div>
+            
+            <!-- Room Details -->
+            <div class="p-5 text-center">
+                <h4 class="text-xl font-semibold text-gray-800 mb-2">Standard Villa</h4>
+                <p class="text-gray-600 text-sm">Guest Rating: <strong>8.0</strong> (267 reviews)</p>
+                <p class="text-gray-600 text-sm">Non-Smoking | Garden View | Balcony/Terrace</p>
+                <p class="text-gray-600 text-sm mt-2">Relax in a stylish villa featuring a private bathroom, free Wi-Fi, satellite TV, and elegant wooden flooring. Enjoy complimentary tea, coffee, and modern amenities.</p>
+                <p class="text-lg font-semibold text-gray-900 mt-2">₱9,600 </p>
+                <a href="booking.html" class="inline-block mt-3 text-blue-500 font-medium hover:underline">Book Now</a>
+              </div>
+        </div>
+        
+         
+      </div>
+  </div>
+</section>
+
+
+
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Carousel Initialization -->
+  <script>
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 4,         // Number of images visible at once
+      spaceBetween: 10,         // Gap between slides
+      loop: true,               // Infinite loop
+      autoplay: {
+        delay: 2500,            // 2.5 seconds per slide
+        disableOnInteraction: false,
+      },
+      // Responsive breakpoints
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 4,
+        },
+      },
+    });
+  </script>
+  <script src="assets/js/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+  <!-- FOOTER SECTION (BLACK BACKGROUND) -->
+  <!-- FOOTER SECTION (BLACK BACKGROUND) -->
+
+</body>
+</html>

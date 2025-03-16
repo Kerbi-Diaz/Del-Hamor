@@ -1,0 +1,5 @@
+{
+    "livePreview.defaultPreviewPath": "/index.html",
+    "files.autoSave": "onFocusChange",
+    "notebook.backup.sizeLimit": 0
+}
